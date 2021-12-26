@@ -1,0 +1,31 @@
+{
+  "name": "cuadraditos-js-server",
+  "version": "1.0.0",
+  "description": "Just a classic paper game made in JS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "Cuadraditos",
+    "Multiplayer",
+    "Game"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/braiscarrion/cuadraditosJS"
+  },
+  "author": "Brais Carrion",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket.io": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.4"
+  }
+}
