@@ -1,0 +1,2 @@
+bin/server/node_modules/*
+bin/server/package-lock.json
