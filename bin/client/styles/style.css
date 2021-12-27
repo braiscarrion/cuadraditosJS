@@ -1,0 +1,29 @@
+button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+
+  form {
+      border: solid;
+      border-width: 1px;
+      padding:5px;
+  }
+
+  .controls-wrapper {
+    width: 300px;
+  }
+  
+  .chat-box {
+    height: 250px;
+    border: solid;
+    border-width: 2px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
