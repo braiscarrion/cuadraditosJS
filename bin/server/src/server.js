@@ -3,7 +3,9 @@ const express = require("express");
 const socketio = require("socket.io");
 
 const createPlayer = require("./player");
-const { getName } = createPlayer();
+
+const chatInteractions = require("./chat");
+const { sayWelcome, sayMessage } = chatInteractions();
 
 const app = express();
 
@@ -13,9 +15,12 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on("connection", (socket) => {
-  socket.emit("welcome", getName());
+  const { getColor } = createPlayer();
+  socket.emit("welcome", sayWelcome(getColor()));
 
-  socket.on("message", (msg) => io.emit("message", getName(), msg));
+  socket.on("message", (msg) =>
+    io.emit("message", sayMessage(getColor(), msg))
+  );
 });
 
 server.on("error", (err) => {

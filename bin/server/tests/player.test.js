@@ -1,8 +1,11 @@
 const createPlayer = require("../src/player.js");
-const { getName } = createPlayer();
+const { getColor } = createPlayer();
 
 describe("Player", () => {
-  test("getName returns a name", () => {
-    expect(getName()).toBe("player_test");
+  describe("getColor", () => {
+    test("getColor returns a random color", () => {
+      let color = getColor();
+      expect(color).toMatch(new RegExp("#[0-9A-Fa-f]{6}"));
+    });
   });
 });

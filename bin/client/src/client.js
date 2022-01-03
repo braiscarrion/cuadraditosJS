@@ -1,20 +1,11 @@
 function isBlank(str) {
   return !str || str.trim().length === 0;
 }
-const writeMessage = (playerName, message) => {
-  if (isBlank(message)) {
-    return;
-  }
-  const text = playerName + ": " + message;
-  addMessageToChat(text);
-};
-
-const welcomePlayer = (playerName) => {
-  const text = "Welcome to CuadraditosJS, " + playerName;
-  addMessageToChat(text);
-};
 
 const addMessageToChat = (text) => {
+  if (isBlank(text)) {
+    return;
+  }
   const parent = document.querySelector("#events");
   const el = document.createElement("li");
   el.innerHTML = text;
@@ -34,8 +25,8 @@ const onChatSubmitted = (socket) => (e) => {
 
 (() => {
   const socket = io();
-  socket.on("welcome", welcomePlayer);
-  socket.on("message", writeMessage);
+  socket.on("welcome", addMessageToChat);
+  socket.on("message", addMessageToChat);
 
   document
     .querySelector("#chat-form")

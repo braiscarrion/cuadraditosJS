@@ -1,12 +1,13 @@
-const createPlayer = () => {
-  let name = "player_test";
+const randomColor = require("randomcolor");
 
-  const getName = () => {
-    return name;
+const createPlayer = () => {
+  let color = randomColor();
+  const getColor = () => {
+    return color;
   };
 
   return {
-    getName,
+    getColor,
   };
 };
 
