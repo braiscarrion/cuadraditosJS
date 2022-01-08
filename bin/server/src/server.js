@@ -1,4 +1,6 @@
 const http = require("http");
+const port = process.env.PORT || 3000
+
 const express = require("express");
 const socketio = require("socket.io");
 
@@ -34,6 +36,6 @@ server.on("error", (err) => {
   console.error(err);
 });
 
-server.listen(8080, () => {
-  console.log("CuadraditosJS is started");
+server.listen(port, () => {
+  console.log("CuadraditosJS is started at port " + port);
 });
