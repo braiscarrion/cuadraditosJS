@@ -11,7 +11,7 @@ Just a classic paper game made in JS
 Run from your terminal:
 
     git git@github.com:braiscarrion/cuadraditosJS.git
-    cd cuadraditosJS\bin\server
+    cd cuadraditosJS
     npm install
 
 ## Run
