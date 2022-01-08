@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "node bin/server/src/server.js",
+    "dev": "nodemon bin/server/src/server.js"
   },
   "keywords": [
     "Cuadraditos",
