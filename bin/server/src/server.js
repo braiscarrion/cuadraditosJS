@@ -4,6 +4,9 @@ const socketio = require("socket.io");
 
 const createPlayer = require("./player");
 
+const createBoard = require("./board");
+const { getBoard, getBoardJson } = createBoard();
+
 const chatInteractions = require("./chat");
 const { sayWelcome, sayMessage } = chatInteractions();
 
@@ -14,13 +17,17 @@ app.use(express.static(`${__dirname}/../../client`));
 const server = http.createServer(app);
 const io = socketio(server);
 
+getBoard();
+
 io.on("connection", (socket) => {
   const { getColor } = createPlayer();
-  socket.emit("welcome", sayWelcome(getColor()));
+  const color = getColor();
 
-  socket.on("message", (msg) =>
-    io.emit("message", sayMessage(getColor(), msg))
-  );
+  socket.emit("welcome", sayWelcome(color));
+  socket.emit("renderCanvas", getBoardJson());
+
+  socket.on("message", (msg) => io.emit("message", sayMessage(color, msg)));
+  socket.on("turn", ({ x, y }) => io.emit("turn", { x, y, color }));
 });
 
 server.on("error", (err) => {
